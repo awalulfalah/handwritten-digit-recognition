@@ -1,0 +1,204 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+    <title>Handwritten Digit Recognition - AI-Powered Neural Network</title>
+    <meta name="title" content="Handwritten Digit Recognition - AI-Powered Neural Network" />
+    <meta name="description"
+      content="Free online handwritten digit recognition tool powered by neural networks. Draw digits 0-9 and get instant AI predictions with real-time confidence scores. Built with JavaScript." />
+    <meta name="keywords"
+      content="digit recognition, handwritten digits, machine learning, neural network, JavaScript, PyTorch, AI, artificial intelligence, deep learning, MNIST, canvas drawing, real-time prediction" />
+    <meta name="author" content="Hovhannes Hovhannisyan" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="en" />
+    <meta name="theme-color" content="#2196F3" />
+  
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Handwritten Digit Recognition - AI-Powered Neural Network" />
+    <meta property="og:description"
+      content="Free online handwritten digit recognition tool powered by neural networks. Draw digits and get instant AI predictions." />
+    <meta property="og:url" content="https://github.com/vontanne/handwritten-digit-recognition" />
+    <meta property="og:site_name" content="Handwritten Digit Recognition" />
+    <meta property="og:image" content="icons/dall-e-generated.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Handwritten Digit Recognition Tool Preview" />
+  
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Handwritten Digit Recognition - AI-Powered Neural Network" />
+    <meta property="twitter:description"
+      content="Free online handwritten digit recognition tool powered by neural networks. Draw digits and get instant AI predictions." />
+    <meta property="twitter:image" content="icons/dall-e-generated.png" />
+    <meta property="twitter:image:alt" content="Handwritten Digit Recognition Tool Preview" />
+  
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/dall-e-generated.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/dall-e-generated.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/dall-e-generated.png" />
+    <link rel="manifest" href="manifest.json" />
+  
+    <!-- Performance and Security -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+  
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Handwritten Digit Recognition",
+        "description": "AI-powered handwritten digit recognition tool using neural networks",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web Browser",
+        "author": {
+          "@type": "Person",
+          "name": "Hovhannes Hovhannisyan"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "softwareVersion": "1.0.0"
+      }
+      </script>
+  
+    <link rel="stylesheet" href="./style/style.css">
+  </head>
+  <body>
+    <nav>
+      <div class="nav-footer-common">
+        <div class="brand-logo center">Simple Digit Recognizer</div>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li>
+            <a
+              href="https://github.com/vontanne/handwritten-digit-recognition"
+              target="_blank"
+              >Source Code</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="card-panel hoverable">
+          <blockquote>
+            <p style="font-size: larger">
+              <strong
+                >Quickly recognize digits with our neural network, built with
+                JavaScript for speedy predictions. This web demo uses a model
+                trained with PyTorch to identify numbers right away.
+              </strong>
+            </p>
+          </blockquote>
+        </div>
+        <div class="col s3 offset-s4">
+          <div class="card-panel no-pad hoverable">
+            <canvas
+              class="canvas elevation"
+              id="canvas"
+              width="280"
+              height="280"
+            ></canvas>
+          </div>
+        </div>
+        <div class="card-panel hoverable col s2">
+          <div id="pred" class="predictions">
+            <div class="prediction-col" id="prediction-0">
+              <div class="prediction-bar-container">
+                <div class="prediction-bar"></div>
+              </div>
+              <div class="prediction-number rotated">0</div>
+            </div>
+
+            <div class="prediction-col" id="prediction-1">
+              <div class="prediction-bar-container">
+                <div class="prediction-bar"></div>
+              </div>
+              <div class="prediction-number rotated">1</div>
+            </div>
+
+            <div class="prediction-col" id="prediction-2">
+              <div class="prediction-bar-container">
+                <div class="prediction-bar"></div>
+              </div>
+              <div class="prediction-number rotated">2</div>
+            </div>
+
+            <div class="prediction-col" id="prediction-3">
+              <div class="prediction-bar-container">
+                <div class="prediction-bar"></div>
+              </div>
+              <div class="prediction-number rotated">3</div>
+            </div>
+
+            <div class="prediction-col" id="prediction-4">
+              <div class="prediction-bar-container">
+                <div class="prediction-bar"></div>
+              </div>
+              <div class="prediction-number rotated">4</div>
+            </div>
+
+            <div class="prediction-col" id="prediction-5">
+              <div class="prediction-bar-container">
+                <div class="prediction-bar"></div>
+              </div>
+              <div class="prediction-number rotated">5</div>
+            </div>
+
+            <div class="prediction-col" id="prediction-6">
+              <div class="prediction-bar-container">
+                <div class="prediction-bar"></div>
+              </div>
+              <div class="prediction-number rotated">6</div>
+            </div>
+
+            <div class="prediction-col" id="prediction-7">
+              <div class="prediction-bar-container">
+                <div class="prediction-bar"></div>
+              </div>
+              <div class="prediction-number rotated">7</div>
+            </div>
+
+            <div class="prediction-col" id="prediction-8">
+              <div class="prediction-bar-container">
+                <div class="prediction-bar"></div>
+              </div>
+              <div class="prediction-number rotated">8</div>
+            </div>
+
+            <div class="prediction-col" id="prediction-9">
+              <div class="prediction-bar-container">
+                <div class="prediction-bar"></div>
+              </div>
+              <div class="prediction-number rotated">9</div>
+            </div>
+          </div>
+          <div class="button-pad center">
+            <a id="clear-button" class="waves-effect waves-light btn">CLEAR</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="page-footer nav-footer-common">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text"><a href="https://github.com/vontanne" target="_blank">Hovhannes Hovhannisyan 2024</a></h5>
+      </div>
+    </div>
+  </footer>
+  <script src="./mnist-model-parameters/weights/weights-layer1.js"></script>
+  <script src="./mnist-model-parameters/weights/weights-layer2.js"></script>
+  <script src="./mnist-model-parameters/weights/weights-layer3.js"></script>
+  <script src="./mnist-model-parameters/biases/biases-layer1.js"></script>
+  <script src="./mnist-model-parameters/biases/biases-layer2.js"></script>
+  <script src="./mnist-model-parameters/biases/biases-layer3.js"></script>
+  <script src="./script/index.js"></script>
+  </body>
+</html>
